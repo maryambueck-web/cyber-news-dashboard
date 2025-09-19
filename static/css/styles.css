@@ -24,15 +24,54 @@ a { color: inherit; text-decoration: none; }
     --ring: rgba(255,255,255,0.08);
     --border: #1f242b;
   }
+  
+  body {
+    /* Dark theme with your actual NEWS image */
+    background: 
+      /* Darker overlay for dark theme */
+      linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      /* Your news background image */
+      url('../images/global-news.webp'),
+      /* Fallback dark gradient if image doesn't load */
+      linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  
+  .hero {
+    background: rgba(17, 20, 24, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card {
+    background: rgba(17, 20, 24, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  }
 }
 
 /* Typography */
 body {
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: var(--bg);
   color: var(--text);
   line-height: 1.55;
   font-size: 16px;
+  /* Your actual NEWS image background */
+  background: 
+    /* Semi-transparent overlay for text readability */
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    /* Your news background image */
+    url('../images/global-news.webp'),
+    /* Fallback blue gradient if image doesn't load */
+    linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
 h1, h2, h3 {
@@ -115,9 +154,21 @@ p { margin: 0 0 12px; }
 /* Hero section */
 .hero {
   padding: 40px 0 16px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  margin: 20px 0;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 .hero h1 {
   font-size: 32px;
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
 }
 .hero .sub {
   color: var(--muted);
@@ -135,18 +186,21 @@ p { margin: 0 0 12px; }
 /* Default: 3 cards per row */
 .card {
   grid-column: span 4;
-  background: var(--card);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 18px;
   overflow: hidden;
-  transition: transform 120ms ease, box-shadow 120ms ease;
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
   display: flex;
   flex-direction: column;   /* allow equal height layout */
   height: 100%;             /* ensure stretch */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  border-color: rgba(59, 130, 246, 0.3);
 }
 .card a {
   display: flex;
